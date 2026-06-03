@@ -8,63 +8,63 @@
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 body { font-family: 'Nunito', sans-serif; background: #0d1117; color: #f9fafb; min-height: 100dvh; }
-
 .screen { display: none; min-height: 100dvh; flex-direction: column; align-items: center; }
 .screen.active { display: flex; }
 
 /* HOME */
-#homeScreen { justify-content: center; padding: 32px 20px; gap: 0; text-align: center; }
-.logo-emoji { font-size: 4.5rem; margin-bottom: 10px; line-height: 1; }
+#homeScreen { justify-content: center; padding: 32px 20px; text-align: center; gap: 0; }
+.logo-emoji { font-size: clamp(3.5rem,10vw,5.5rem); margin-bottom: 10px; }
 .logo-title {
   font-family: 'Fredoka One', cursive;
-  font-size: clamp(3rem, 11vw, 5rem);
-  background: linear-gradient(130deg, #fbbf24, #f97316, #f472b6);
+  font-size: clamp(3rem,12vw,6rem);
+  background: linear-gradient(130deg,#fbbf24,#f97316,#f472b6);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  margin: 0 0 6px; line-height: 1.1;
+  margin: 0 0 8px; line-height: 1.1;
 }
-.logo-sub { color: #4b5563; font-weight: 900; font-size: 1rem; margin-bottom: 48px; }
+.logo-sub { color: #4b5563; font-weight: 900; font-size: clamp(.9rem,3vw,1.1rem); margin-bottom: clamp(32px,6vw,56px); }
 .btn-play {
-  background: linear-gradient(135deg, #f97316, #f472b6);
-  border: none; border-radius: 22px; padding: 20px 60px;
-  font-family: 'Fredoka One', cursive; font-size: 1.7rem; color: #fff;
-  cursor: pointer; box-shadow: 0 8px 32px rgba(249,115,22,.45);
-  transition: transform .15s;
+  background: linear-gradient(135deg,#f97316,#f472b6);
+  border: none; border-radius: 22px;
+  padding: clamp(16px,4vw,22px) clamp(40px,10vw,72px);
+  font-family: 'Fredoka One', cursive; font-size: clamp(1.4rem,5vw,2rem);
+  color: #fff; cursor: pointer; box-shadow: 0 8px 32px rgba(249,115,22,.45); transition: transform .15s;
 }
 .btn-play:hover { transform: translateY(-2px); }
-.home-hint { margin-top: 24px; color: #374151; font-size: .85rem; font-weight: 700; max-width: 280px; line-height: 1.5; }
+.home-hint { margin-top: 20px; color: #374151; font-size: clamp(.8rem,2.5vw,.95rem); font-weight: 700; max-width: 300px; line-height: 1.6; }
 
 /* GAME */
-#gameScreen { padding: 14px 12px 48px; }
+#gameScreen { padding: clamp(10px,3vw,20px) clamp(8px,3vw,20px) 48px; }
 .game-header {
   display: flex; align-items: center; justify-content: space-between;
-  width: 100%; max-width: 600px; margin: 0 auto 14px;
+  width: 100%; max-width: 960px; margin: 0 auto clamp(10px,2vw,18px);
 }
 .header-title {
-  font-family: 'Fredoka One', cursive; font-size: 1.3rem;
+  font-family: 'Fredoka One', cursive; font-size: clamp(1.1rem,4vw,1.5rem);
   background: linear-gradient(130deg,#fbbf24,#f97316);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
 .counter {
   background: #161b22; border: 1px solid #30363d; border-radius: 20px;
-  padding: 4px 14px; font-size: .8rem; font-weight: 900; color: #6b7280;
+  padding: 4px 14px; font-size: clamp(.75rem,2.5vw,.9rem); font-weight: 900; color: #6b7280;
 }
 .btn-new {
   background: #161b22; border: 1px solid #30363d; border-radius: 20px;
-  padding: 6px 14px; font-size: .8rem; font-weight: 900; color: #6b7280; cursor: pointer;
-  font-family: 'Nunito', sans-serif;
+  padding: 6px 14px; font-size: clamp(.75rem,2.5vw,.9rem); font-weight: 900;
+  color: #6b7280; cursor: pointer; font-family: 'Nunito',sans-serif; transition: all .2s;
 }
+.btn-new:hover { color: #f9fafb; border-color: #6b7280; }
 
-/* Secret */
-.secret-section { width: 100%; max-width: 600px; margin: 0 auto 18px; }
+/* SECRET */
+.secret-section { width: 100%; max-width: 960px; margin: 0 auto clamp(14px,3vw,22px); }
 .section-lbl {
-  font-size: .68rem; font-weight: 900; letter-spacing: 2.5px; text-transform: uppercase;
-  color: #fbbf24; text-align: center; margin-bottom: 8px;
+  font-size: clamp(.65rem,2vw,.75rem); font-weight: 900; letter-spacing: 2.5px;
+  text-transform: uppercase; color: #fbbf24; text-align: center; margin-bottom: 8px;
 }
 .secret-card {
   background: #161b22; border: 2px solid #fbbf24; border-radius: 18px;
-  padding: 12px 16px; display: flex; align-items: center; gap: 14px;
-  cursor: pointer; position: relative; overflow: hidden; max-width: 340px; margin: 0 auto;
-  transition: border-color .3s;
+  padding: clamp(10px,3vw,16px); display: flex; align-items: center;
+  gap: clamp(10px,3vw,18px); cursor: pointer; position: relative;
+  overflow: hidden; max-width: 420px; margin: 0 auto; transition: border-color .3s;
 }
 .secret-card.revealed { border-color: #fbbf2455; cursor: default; }
 .secret-cover {
@@ -73,82 +73,82 @@ body { font-family: 'Nunito', sans-serif; background: #0d1117; color: #f9fafb; m
   gap: 6px; border-radius: 16px; z-index: 5; transition: opacity .3s;
 }
 .secret-card.revealed .secret-cover { opacity: 0; pointer-events: none; }
-.secret-cover .lock { font-size: 2.2rem; }
-.secret-cover .tap-lbl { font-size: .68rem; font-weight: 900; letter-spacing: 2px; color: #fbbf24; text-transform: uppercase; }
-.secret-photo { width: 80px; height: 80px; object-fit: cover; object-position: top; border-radius: 12px; border: 2px solid #30363d; flex-shrink: 0; }
-.secret-name { font-family: 'Fredoka One', cursive; font-size: 1.25rem; color: #f9fafb; margin-bottom: 4px; }
-.secret-hint { font-size: .75rem; font-weight: 700; color: #6b7280; }
+.secret-cover .lock { font-size: clamp(1.8rem,5vw,2.5rem); }
+.secret-cover .tap-lbl { font-size: clamp(.6rem,2vw,.72rem); font-weight: 900; letter-spacing: 2px; color: #fbbf24; text-transform: uppercase; }
+.secret-photo {
+  width: clamp(72px,18vw,110px); height: clamp(72px,18vw,110px);
+  object-fit: cover; object-position: top; border-radius: 12px; border: 2px solid #30363d; flex-shrink: 0;
+}
+.secret-name { font-family: 'Fredoka One',cursive; font-size: clamp(1.1rem,4vw,1.5rem); color: #f9fafb; margin-bottom: 4px; }
+.secret-hint { font-size: clamp(.7rem,2vw,.8rem); font-weight: 700; color: #6b7280; }
 
-/* Board */
-.board-section { width: 100%; max-width: 600px; margin: 0 auto; }
+/* BOARD */
+.board-section { width: 100%; max-width: 960px; margin: 0 auto; }
 .board-lbl {
-  font-size: .68rem; font-weight: 900; letter-spacing: 2px; text-transform: uppercase;
-  color: #374151; text-align: center; margin-bottom: 10px;
+  font-size: clamp(.62rem,2vw,.75rem); font-weight: 900; letter-spacing: 2px;
+  text-transform: uppercase; color: #374151; text-align: center; margin-bottom: clamp(8px,2vw,12px);
 }
 .board {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 8px;
+  gap: clamp(6px,2vw,14px);
 }
 .char-card {
-  background: #161b22; border-radius: 14px; overflow: hidden;
+  background: #161b22; border-radius: clamp(10px,2vw,16px); overflow: hidden;
   border: 2px solid #30363d; cursor: pointer; position: relative;
   display: flex; flex-direction: column; align-items: center;
-  box-shadow: 0 2px 10px rgba(0,0,0,.4);
-  transition: all .18s ease;
+  box-shadow: 0 2px 12px rgba(0,0,0,.4); transition: all .18s ease;
 }
-.char-card:hover:not(.out) {
-  transform: translateY(-4px);
-  border-color: #fbbf24;
-  box-shadow: 0 8px 24px rgba(251,191,36,.25);
-}
-.char-card.out {
-  opacity: .18; filter: grayscale(1); cursor: default; border-color: #1c2128;
-}
+.char-card:hover:not(.out) { transform: translateY(-4px); border-color: #fbbf24; box-shadow: 0 10px 28px rgba(251,191,36,.28); }
+.char-card.out { opacity: .18; filter: grayscale(1); cursor: default; border-color: #1c2128; }
 .char-card.out:hover { transform: none; border-color: #1c2128; box-shadow: none; }
 .char-photo { width: 100%; aspect-ratio: 1/1; object-fit: cover; object-position: top; display: block; }
 .char-name {
-  font-family: 'Fredoka One', cursive; font-size: .68rem; color: #e5e7eb;
-  padding: 4px 2px 6px; text-align: center; width: 100%; background: #161b22;
+  font-family: 'Fredoka One',cursive; font-size: clamp(.62rem,1.6vw,.85rem);
+  color: #e5e7eb; padding: clamp(3px,1vw,6px) 4px clamp(5px,1.5vw,8px);
+  text-align: center; width: 100%; background: #161b22; line-height: 1.2;
 }
 .char-card.out .char-name { color: #1f2937; }
 .x-mark {
   position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-  font-size: 3rem; pointer-events: none; opacity: 0; transition: opacity .2s;
+  font-size: clamp(2.5rem,8vw,4rem); pointer-events: none; opacity: 0; transition: opacity .2s;
 }
 .char-card.out .x-mark { opacity: 1; }
 
 /* WIN */
-#winScreen { justify-content: center; padding: 32px 20px; gap: 18px; text-align: center; }
-.trophy { font-size: 5rem; animation: pop .6s ease infinite alternate; }
+#winScreen { justify-content: center; padding: 32px 20px; gap: clamp(14px,3vw,22px); text-align: center; }
+.trophy { font-size: clamp(4rem,12vw,6rem); animation: pop .6s ease infinite alternate; }
 @keyframes pop { 0%{transform:scale(1) rotate(-5deg)} 100%{transform:scale(1.15) rotate(5deg)} }
 .win-title {
-  font-family: 'Fredoka One', cursive; font-size: clamp(2.2rem,9vw,3.2rem);
+  font-family: 'Fredoka One',cursive; font-size: clamp(2.2rem,9vw,3.5rem);
   background: linear-gradient(130deg,#fbbf24,#f97316);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  margin: 0;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 0;
 }
+.win-sub { color: #6b7280; font-weight: 700; font-size: clamp(.85rem,2.5vw,1rem); }
 .win-card {
   background: #161b22; border: 2px solid #30363d; border-radius: 22px;
-  padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 10px;
+  padding: clamp(16px,4vw,24px); display: flex; flex-direction: column; align-items: center; gap: 10px;
 }
-.win-photo { width: 130px; height: 130px; object-fit: cover; object-position: top; border-radius: 14px; border: 3px solid #fbbf24; }
-.win-name { font-family: 'Fredoka One', cursive; font-size: 1.7rem; color: #fbbf24; }
+.win-photo {
+  width: clamp(110px,28vw,170px); height: clamp(110px,28vw,170px);
+  object-fit: cover; object-position: top; border-radius: 14px; border: 3px solid #fbbf24;
+}
+.win-name { font-family: 'Fredoka One',cursive; font-size: clamp(1.4rem,5vw,2rem); color: #fbbf24; }
 .btn-again {
-  background: linear-gradient(135deg, #2dd4bf, #3b82f6); border: none; border-radius: 18px;
-  padding: 16px 44px; font-family: 'Fredoka One', cursive; font-size: 1.35rem; color: #fff;
-  cursor: pointer; box-shadow: 0 6px 22px rgba(45,212,191,.35); transition: transform .15s;
+  background: linear-gradient(135deg,#2dd4bf,#3b82f6); border: none; border-radius: 18px;
+  padding: clamp(13px,3vw,17px) clamp(32px,8vw,48px);
+  font-family: 'Fredoka One',cursive; font-size: clamp(1.1rem,4vw,1.4rem);
+  color: #fff; cursor: pointer; box-shadow: 0 6px 22px rgba(45,212,191,.35); transition: transform .15s;
 }
 .btn-again:hover { transform: translateY(-2px); }
 
-@media (max-width: 400px) {
-  .board { grid-template-columns: repeat(4, 1fr); gap: 6px; }
+@media (max-width: 380px) {
+  .board { grid-template-columns: repeat(3, 1fr); }
 }
 </style>
 </head>
 <body>
 
-<!-- HOME -->
 <div id="homeScreen" class="screen active">
   <div class="logo-emoji">🎭</div>
   <h1 class="logo-title">Guess Who?</h1>
@@ -157,14 +157,12 @@ body { font-family: 'Nunito', sans-serif; background: #0d1117; color: #f9fafb; m
   <p class="home-hint">You get a secret character.<br>Eliminate the others until one is left!</p>
 </div>
 
-<!-- GAME -->
 <div id="gameScreen" class="screen">
   <div class="game-header">
     <span class="header-title">🎭 Guess Who?</span>
     <span class="counter" id="counter">15 left</span>
     <button class="btn-new" onclick="startGame()">🔄 New</button>
   </div>
-
   <div class="secret-section">
     <div class="section-lbl">⭐ Your secret character</div>
     <div class="secret-card" id="secretCard" onclick="revealSecret()">
@@ -179,18 +177,16 @@ body { font-family: 'Nunito', sans-serif; background: #0d1117; color: #f9fafb; m
       </div>
     </div>
   </div>
-
   <div class="board-section">
     <div class="board-lbl">Tap a face to eliminate ❌</div>
     <div class="board" id="board"></div>
   </div>
 </div>
 
-<!-- WIN -->
 <div id="winScreen" class="screen">
   <div class="trophy">🏆</div>
   <h2 class="win-title">You got it!</h2>
-  <p style="color:#6b7280;font-weight:700">The character was...</p>
+  <p class="win-sub">The character was...</p>
   <div class="win-card">
     <img class="win-photo" id="winPhoto" src="" alt="">
     <div class="win-name" id="winName"></div>
@@ -229,11 +225,9 @@ function show(id) {
 function startGame() {
   secret = CHARACTERS[Math.floor(Math.random() * CHARACTERS.length)];
   eliminated = new Set();
-
   document.getElementById('secretPhoto').src = secret.photo;
   document.getElementById('secretName').textContent = secret.name;
   document.getElementById('secretCard').classList.remove('revealed');
-
   renderBoard();
   show('gameScreen');
 }
@@ -248,11 +242,19 @@ function renderBoard() {
   CHARACTERS.forEach(char => {
     const card = document.createElement('div');
     card.className = 'char-card' + (eliminated.has(char.name) ? ' out' : '');
-    card.innerHTML = `
-      <img class="char-photo" src="${char.photo}" alt="${char.name}">
-      <div class="char-name">${char.name}</div>
-      <div class="x-mark">❌</div>
-    `;
+    const img = document.createElement('img');
+    img.className = 'char-photo';
+    img.src = char.photo;
+    img.alt = char.name;
+    const nameEl = document.createElement('div');
+    nameEl.className = 'char-name';
+    nameEl.textContent = char.name;
+    const x = document.createElement('div');
+    x.className = 'x-mark';
+    x.textContent = '❌';
+    card.appendChild(img);
+    card.appendChild(nameEl);
+    card.appendChild(x);
     card.addEventListener('click', () => toggle(char, card));
     board.appendChild(card);
   });
@@ -268,15 +270,15 @@ function toggle(char, card) {
     card.classList.add('out');
     const remaining = CHARACTERS.filter(c => !eliminated.has(c.name));
     if (remaining.length === 1) {
-      setTimeout(() => triggerWin(remaining[0]), 350);
+      setTimeout(() => triggerWin(remaining[0]), 400);
     }
   }
   updateCounter();
 }
 
 function updateCounter() {
-  const remaining = CHARACTERS.filter(c => !eliminated.has(c.name));
-  document.getElementById('counter').textContent = remaining.length + ' left';
+  const rem = CHARACTERS.filter(c => !eliminated.has(c.name));
+  document.getElementById('counter').textContent = rem.length + ' left';
 }
 
 function triggerWin(char) {
